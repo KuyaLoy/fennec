@@ -1,0 +1,130 @@
+@use "../utils" as u;
+header {
+  font-family: "Denominary";
+  font-weight: bold;
+  padding: u.rem(20);
+  background: hsla(0, 0%, 6%, 0.3) 0% 0% no-repeat padding-box;
+  backdrop-filter: blur(u.rem(16));
+  @include u.breakpoint-max(medium) {
+    padding: u.rem(10) u.rem(20);
+  }
+  nav {
+    max-width: u.rem(1630);
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: u.rem(60);
+        width: 100%;
+        height: auto;
+        @include u.breakpoint-max(medium) {
+          max-width: u.rem(40);
+        }
+      }
+      p {
+        font-size: u.rem(32);
+        letter-spacing: u.rem(1.28);
+        line-height: u.rem(45);
+        margin-left: u.rem(10);
+        color: u.$white;
+        white-space: nowrap;
+        transition: all ease 1s;
+
+        @include u.breakpoint-max(medium) {
+          font-size: u.rem(16);
+          letter-spacing: u.rem(0.64);
+          line-height: u.rem(19);
+          font-family: "Babas-Bold";
+        }
+      }
+    }
+    .menu {
+      button {
+        height: u.rem(32);
+        width: u.rem(32);
+        background-image: url("../images/burger-menu.svg");
+        background-color: hsl(20, 48%, 14%);
+        border: none;
+        border-radius: u.rem(8);
+      }
+      ul {
+        display: none;
+        &.show {
+          position: fixed;
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          background: hsla(20, 86%, 23%, 0.5) 0% 0% no-repeat padding-box;
+          box-shadow: inset 3px 3px 10px #00000029;
+          border: 1px solid #ff762f;
+          backdrop-filter: blur(6px);
+
+          right: 0;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          backdrop-filter: blur(u.rem(23));
+
+          li {
+            padding: u.rem(0) u.rem(20);
+            margin: u.rem(30) 0;
+            a {
+              text-decoration: none;
+              color: u.$white;
+              font-size: u.rem(28);
+              letter-spacing: u.rem(1.44);
+              line-height: u.rem(33);
+              transition: ease 0.5s;
+            }
+
+            &:hover {
+              a {
+                color: u.$secondary-color;
+              }
+            }
+          }
+        }
+      }
+      @include u.breakpoint-min(large) {
+        button {
+          display: none;
+        }
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          li {
+            padding: u.rem(0) u.rem(20);
+            a {
+              text-decoration: none;
+              color: u.$white;
+              font-size: u.rem(24);
+              letter-spacing: u.rem(1.44);
+              line-height: u.rem(33);
+              transition: ease 0.5s;
+            }
+
+            &:hover {
+              a {
+                color: u.$secondary-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
