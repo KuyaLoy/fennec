@@ -192,26 +192,6 @@ body {
             }
             a.explore {
               margin-top: clamp(2rem, 6.197vw + 0.063rem, 7.5rem);
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              max-width: clamp(7.5rem, 6.69vw + 5.409rem, 13.438rem);
-              height: clamp(2.188rem, 2.113vw + 1.527rem, 4.063rem);
-              width: 100%;
-              color: u.$secondary-color;
-              text-decoration: none;
-              background-image: url(../images/btn-bg.png);
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: cover;
-              font-family: "Denominary";
-              font-size: clamp(1rem, 0.845vw + 0.736rem, 1.75rem);
-              letter-spacing: clamp(0.031rem, 0.07vw + 0.009rem, 0.094rem);
-
-              font-weight: 700;
-              @include u.breakpoint-max(medium) {
-                font-weight: 500;
-              }
             }
           }
         }
@@ -223,7 +203,7 @@ body {
         position: relative;
 
         h2 {
-          font-size: clamp(3.125rem, 0.6382rem + 7.9577vw, 10.1875rem);
+          font-size: clamp(2.5rem, 0.7394rem + 5.6338vw, 7.5rem);
           font-family: "Babas-Bold";
           letter-spacing: clamp(0.1875rem, 0.0742rem + 0.3627vw, 0.509375rem);
 
@@ -438,6 +418,9 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
 
+        position: relative;
+        overflow: hidden;
+
         padding: clamp(4.25rem, 2.6215rem + 5.2113vw, 8.875rem) u.rem(20);
 
         .main-title {
@@ -485,6 +468,7 @@ body {
           max-width: u.rem(1355);
           width: 100%;
           margin: 0 auto;
+          margin-top: clamp(9.375rem, 7.9665rem + 4.507vw, 13.375rem);
           display: grid;
           grid-template-columns:
             clamp(18.75rem, 12.1479rem + 21.1268vw, 37.5rem)
@@ -510,11 +494,20 @@ body {
               display: none;
             }
           }
-
+          .content-1 {
+            img:nth-child(3) {
+              width: 120%;
+            }
+          }
           div[class*="content-"] {
             position: relative;
             text-align: center;
             cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             img {
               // position: absolute;
               // top: 0;
@@ -523,21 +516,30 @@ body {
               // right: 0;
               width: 100%;
               @include u.breakpoint-max(medium) {
-                width: 80%;
+                width: 90%;
               }
 
               &:nth-child(2) {
-                display: none;
+                opacity: 0;
+                height: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
                 position: absolute;
+
+                @include u.breakpoint-max(medium) {
+                  opacity: 1;
+                  height: auto;
+                  margin: 0 auto;
+                }
               }
               &:nth-child(3) {
                 position: absolute;
                 z-index: 1;
-                right: 0;
-                left: 0;
-                top: u.rem(-215);
+                top: u.rem(-200);
 
-                transition: opacity 1s ease-in-out;
+                transition: opacity 0.5s ease-in-out;
                 opacity: 0;
                 height: 0;
 
@@ -545,24 +547,78 @@ body {
                 animation-duration: 5s;
                 animation-iteration-count: infinite;
                 animation-timing-function: ease-in-out;
+
+                @include u.breakpoint-max(medium) {
+                  opacity: 1;
+                  height: auto;
+                  margin: 0 auto;
+                  width: 100%;
+
+                  top: u.rem(-120);
+                }
+                @include u.breakpoint-max(small) {
+                  top: u.rem(-120);
+                }
               }
             }
 
             &:hover {
               img {
-                &:nth-child(2) {
-                  display: block;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                  left: 0;
-                }
+                &:nth-child(2),
                 &:nth-child(3) {
                   opacity: 1;
                   height: auto;
                 }
               }
             }
+
+            .text-button-cont {
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 5%;
+
+              max-width: clamp(15.75rem, 10.1602rem + 17.8873vw, 31.625rem);
+              width: 100%;
+              margin: 0 auto;
+
+              @include u.breakpoint-max(medium) {
+                width: 75%;
+              }
+
+              h3 {
+                color: u.$secondary-color;
+                font-size: clamp(2.5rem, 1.6197rem + 2.8169vw, 5rem);
+                letter-spacing: clamp(0.125rem, 0.081rem + 0.1408vw, 0.25rem);
+                font-family: "Denominary";
+                font-weight: 700;
+                margin-bottom: clamp(0.625rem, -0.0352rem + 2.1127vw, 2.5rem);
+              }
+              p {
+                font-family: "Montserrat";
+                font-weight: 500;
+                font-size: clamp(0.625rem, 0.4489rem + 0.5634vw, 1.125rem);
+                letter-spacing: clamp(
+                  0.0125rem,
+                  0.0011rem + 0.0366vw,
+                  0.045rem
+                );
+                line-height: clamp(1.125rem, 0.8169rem + 0.9859vw, 2rem);
+                margin-bottom: 7.5%;
+              }
+            }
+          }
+        }
+
+        .bg {
+          position: absolute;
+          z-index: -1;
+          width: u.rem(572.65);
+          right: u.rem(-100);
+          top: 50%;
+          transform: translateY(-25%);
+          img {
+            width: 100%;
           }
         }
       }

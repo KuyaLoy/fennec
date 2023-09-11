@@ -1,1 +1,24 @@
 @use "../utils" as u;
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: clamp(7.5rem, 6.69vw + 5.409rem, 13.438rem);
+  height: clamp(2.188rem, 2.113vw + 1.527rem, 4.063rem);
+  width: 100%;
+  color: u.$secondary-color;
+  text-decoration: none;
+  background-image: url(../images/btn-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: "Denominary";
+  font-size: clamp(1rem, 0.845vw + 0.736rem, 1.75rem);
+  letter-spacing: clamp(0.031rem, 0.07vw + 0.009rem, 0.094rem);
+
+  font-weight: 700;
+  @include u.breakpoint-max(medium) {
+    font-weight: 500;
+  }
+}
