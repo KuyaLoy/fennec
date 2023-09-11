@@ -3,10 +3,15 @@ header {
   font-family: "Denominary";
   font-weight: bold;
   padding: u.rem(20);
-  background: hsla(0, 0%, 6%, 0.3) 0% 0% no-repeat padding-box;
+  background: hsla(0, 0%, 6%, 0.3);
   backdrop-filter: blur(u.rem(16));
+  position: relative;
+  z-index: 999;
   @include u.breakpoint-max(medium) {
+    background: #000;
+    backdrop-filter: unset;
     padding: u.rem(10) u.rem(20);
+    font-weight: 500;
   }
   nav {
     max-width: u.rem(1630);
@@ -31,7 +36,8 @@ header {
         }
       }
       p {
-        font-size: u.rem(32);
+        //font-size: u.rem(32);
+        font-size: clamp(1rem, 1.127vw + 0.648rem, 2rem);
         letter-spacing: u.rem(1.28);
         line-height: u.rem(45);
         margin-left: u.rem(10);
@@ -40,7 +46,7 @@ header {
         transition: all ease 1s;
 
         @include u.breakpoint-max(medium) {
-          font-size: u.rem(16);
+          //font-size: u.rem(16);
           letter-spacing: u.rem(0.64);
           line-height: u.rem(19);
           font-family: "Babas-Bold";
@@ -48,7 +54,7 @@ header {
       }
     }
     .menu {
-      button {
+      button.burger-menu {
         height: u.rem(32);
         width: u.rem(32);
         background-image: url("../images/burger-menu.svg");
@@ -58,6 +64,21 @@ header {
       }
       ul {
         display: none;
+
+        button.close-menu {
+          height: u.rem(22);
+          width: u.rem(22);
+          position: absolute;
+          top: u.rem(75);
+          right: u.rem(50);
+          background-color: transparent;
+          border: navajowhite;
+          outline: none;
+          background-position: center;
+          background-size: contain;
+          background-image: url("../images/close.svg");
+        }
+
         &.show {
           position: fixed;
           height: 100vh;
@@ -67,16 +88,67 @@ header {
           justify-content: center;
           flex-direction: column;
 
-          background: hsla(20, 86%, 23%, 0.5) 0% 0% no-repeat padding-box;
-          box-shadow: inset 3px 3px 10px #00000029;
-          border: 1px solid #ff762f;
-          backdrop-filter: blur(6px);
+          background-color: hsla(20, 86%, 23%, 0.5);
+          //border: 1px solid u.$secondary-color;
+          backdrop-filter: blur(u.rem(20));
 
           right: 0;
           top: 0;
           bottom: 0;
           left: 0;
-          backdrop-filter: blur(u.rem(23));
+          //backdrop-filter: blur(u.rem(23));
+
+          .des-1 {
+            width: 0;
+            height: 0;
+            border-left: u.rem(10) solid transparent;
+            border-right: u.rem(10) solid transparent;
+            border-bottom: u.rem(10) solid u.$secondary-color;
+            transform: rotate(315deg);
+
+            position: absolute;
+            top: u.rem(-1);
+            left: u.rem(-6);
+          }
+
+          .des-2 {
+            width: u.rem(167);
+            height: u.rem(14);
+            background-image: url("../images/menu-line.svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: rotate(90deg);
+            position: absolute;
+            top: 30%;
+            right: -80px;
+          }
+
+          .des-3 {
+            width: u.rem(167);
+            height: u.rem(14);
+            background-image: url("../images/menu-line.svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: rotate(270deg);
+            position: absolute;
+            bottom: 20%;
+            left: -80px;
+          }
+
+          .des-4 {
+            width: 0;
+            height: 0;
+            border-left: u.rem(10) solid transparent;
+            border-right: u.rem(10) solid transparent;
+            border-bottom: u.rem(10) solid u.$secondary-color;
+            transform: rotate(135deg);
+
+            position: absolute;
+            bottom: u.rem(-1);
+            right: u.rem(-6);
+          }
 
           li {
             padding: u.rem(0) u.rem(20);

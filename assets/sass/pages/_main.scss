@@ -5,6 +5,10 @@ body {
   color: u.$white;
   position: relative;
 
+  &.disable {
+    overflow: hidden;
+  }
+
   main {
     section {
       &.Home {
@@ -14,6 +18,10 @@ body {
           width: 100%;
           height: auto;
         }
+        @include u.breakpoint-max(medium) {
+          min-height: unset;
+          margin-top: u.rem(0);
+        }
       }
       &.About {
         background-image: url("../images/about/about-bg.png");
@@ -21,8 +29,9 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
 
-        padding: u.rem(200) u.rem(20);
-        min-height: 200vh;
+        //padding: u.rem(200) u.rem(20);
+        padding: clamp(3.125rem, 10.563vw + -0.176rem, 12.5rem) u.rem(20);
+        min-height: 50vh;
 
         .about-container {
           //   max-width: u.rem(1060);
@@ -30,29 +39,47 @@ body {
           //   margin: 0 auto;
           text-align: center;
           .main-title {
-            margin-bottom: u.rem(100);
+            margin-bottom: clamp(2.5rem, 2.817vw + 1.62rem, 5rem);
             h1 {
-              font-size: u.rem(120);
+              font-size: clamp(2.188rem, 5.986vw + 0.317rem, 7.5rem);
               font-family: "Babas-Bold";
-              letter-spacing: u.rem(6);
+              letter-spacing: clamp(0.125rem, 0.282vw + 0.037rem, 0.375rem);
               line-height: u.rem(15);
               color: transparent;
               -webkit-text-stroke: u.rem(1) hsla(0, 0%, 44%, 0.5);
             }
             h2 {
               position: relative;
-              font-size: u.rem(80);
+              font-size: clamp(1.75rem, 3.662vw + 0.606rem, 5rem);
               font-family: "Babas-Bold";
               letter-spacing: u.rem(4);
               line-height: u.rem(15);
               color: u.$secondary-color;
               margin-top: u.rem(10);
+
+              &:before {
+                content: "";
+                height: u.rem(5);
+                width: clamp(5.75rem, 2.757rem + 9.5775vw, 14.25rem);
+                background-color: u.$secondary-color;
+                bottom: u.rem(-40);
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @include u.breakpoint-max(medium) {
+                  height: u.rem(2);
+                  bottom: u.rem(-15);
+                }
+              }
+              @include u.breakpoint-max(medium) {
+                letter-spacing: u.rem(1.4);
+                margin-top: u.rem(0);
+              }
             }
           }
           p {
-            font-size: u.rem(18);
-            letter-spacing: u.rem(0.72);
-            line-height: u.rem(32);
+            font-size: clamp(0.75rem, 0.423vw + 0.618rem, 1.125rem);
+            line-height: clamp(1.375rem, 0.704vw + 1.155rem, 2rem);
             font-family: "Montserrat";
             font-weight: 500;
           }
@@ -61,19 +88,23 @@ body {
             max-width: u.rem(992);
             width: 100%;
             margin: 0 auto;
-            margin-bottom: u.rem(40);
+            margin-bottom: clamp(0.938rem, 1.761vw + 0.387rem, 2.5rem);
           }
           p.status {
-            margin-bottom: u.rem(55);
+            margin-bottom: clamp(2.188rem, 1.408vw + 1.747rem, 3.438rem);
             span {
               color: u.$secondary-color;
             }
           }
+
           .category {
             max-width: u.rem(1080);
             width: 100%;
             margin: 0 auto;
             .web-container {
+              @include u.breakpoint-max(medium) {
+                display: none;
+              }
               .grid2x2 {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -81,16 +112,329 @@ body {
                 grid-column-gap: 80px;
                 grid-row-gap: 80px;
 
-                .category {
+                .content {
+                  cursor: pointer;
+                  position: relative;
                   img {
                     width: 100%;
+                    height: auto;
+                    &:nth-child(1) {
+                      opacity: 1;
+                    }
+                    &:nth-child(2) {
+                      opacity: 0;
+                      position: absolute;
+                      right: 0;
+                      left: 0;
+                      bottom: 0;
+                      top: 0;
+                    }
+                    &:nth-child(3) {
+                      opacity: 0;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%) scaleX(-1);
+                      width: 50%;
+                      transition: all 0.35s ease-in-out;
+                      // transform: scaleX(-1);
+                      // transition: all 0.2s ease-in-out;
+                    }
+                  }
+                  &:hover {
+                    img {
+                      &:nth-child(1) {
+                        opacity: 0;
+                      }
+                      &:nth-child(2) {
+                        opacity: 1;
+                      }
+                      &:nth-child(3) {
+                        opacity: 1;
+                        transform: translate(-50%, -50%) scaleX(1);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .mobile-container {
+              @include u.breakpoint-min(large) {
+                display: none;
+              }
+              .splide__arrow {
+                top: 35%;
+                border: #ff762f 2px solid;
+                background: none;
+                z-index: 1;
+                svg {
+                  filter: invert(69%) sepia(48%) saturate(6538%)
+                    hue-rotate(341deg) brightness(107%) contrast(101%);
+                  width: 70%;
+                }
+              }
+              .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                img {
+                  &:nth-child(1) {
+                    width: 70%;
+                    height: auto;
+                  }
+                  &:nth-child(2) {
+                    width: 30%;
                     height: auto;
                   }
                 }
               }
             }
+            a.explore {
+              margin-top: clamp(2rem, 6.197vw + 0.063rem, 7.5rem);
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              max-width: clamp(7.5rem, 6.69vw + 5.409rem, 13.438rem);
+              height: clamp(2.188rem, 2.113vw + 1.527rem, 4.063rem);
+              width: 100%;
+              color: u.$secondary-color;
+              text-decoration: none;
+              background-image: url(../images/btn-bg.png);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              font-family: "Denominary";
+              font-size: clamp(1rem, 0.845vw + 0.736rem, 1.75rem);
+              letter-spacing: clamp(0.031rem, 0.07vw + 0.009rem, 0.094rem);
+
+              font-weight: 700;
+              @include u.breakpoint-max(medium) {
+                font-weight: 500;
+              }
+            }
           }
         }
+      }
+      &.Collection-supply {
+        text-align: center;
+        padding: clamp(3.125rem, 2.0246rem + 3.5211vw, 6.25rem);
+        padding-bottom: clamp(3.125rem, 2.0246rem + 3.5211vw, 6.25rem);
+        position: relative;
+
+        h2 {
+          font-size: clamp(3.125rem, 0.6382rem + 7.9577vw, 10.1875rem);
+          font-family: "Babas-Bold";
+          letter-spacing: clamp(0.1875rem, 0.0742rem + 0.3627vw, 0.509375rem);
+
+          line-height: u.rem(15);
+          color: transparent;
+          -webkit-text-stroke: u.rem(1) hsla(0, 0%, 44%, 0.5);
+        }
+        .collection-container {
+          max-width: clamp(21.6875rem, 4.9842rem + 53.4507vw, 69.125rem);
+          width: 100%;
+          margin: 0 auto;
+          min-height: 100px;
+          //background-color: red;
+          position: relative;
+          img.main-center {
+            margin-top: -10%;
+            width: 100%;
+          }
+
+          .img-right {
+            position: absolute;
+            right: clamp(1.25rem, -0.4005rem + 5.2817vw, 5.9375rem);
+            top: clamp(2.1875rem, 0.4269rem + 5.6338vw, 7.1875rem);
+            max-width: clamp(6.4375rem, 2.4762rem + 12.6761vw, 17.6875rem);
+            width: 100%;
+            img {
+              width: 100%;
+
+              animation-name: floating-up;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+            }
+          }
+          .img-left {
+            position: absolute;
+            left: 0;
+            bottom: clamp(3.125rem, -1.9366rem + 16.1972vw, 17.5rem);
+
+            max-width: clamp(6.375rem, 1.5114rem + 15.5634vw, 20.1875rem);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+
+            img {
+              width: 100%;
+
+              animation-name: floating-down;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+            }
+            p {
+              text-align: left;
+              margin-top: clamp(0.625rem, 0.4049rem + 0.7042vw, 1.25rem);
+              padding-left: clamp(0rem, -0.2201rem + 0.7042vw, 0.625rem);
+              font-size: clamp(0.625rem, 0.4489rem + 0.5634vw, 1.125rem);
+              letter-spacing: clamp(0.0125rem, 0.0011rem + 0.0366vw, 0.045rem);
+              line-height: clamp(0.875rem, 0.4789rem + 1.2676vw, 2rem);
+              font-family: "Montserrat";
+
+              animation-name: floating-down;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+
+              @include width: 170px;
+            }
+          }
+        }
+      }
+      &.Minted-desc {
+        position: relative;
+        .cont {
+          height: u.rem(393);
+          transition: height 0.3s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: u.rem(0) u.rem(5) u.rem(5) #00000029;
+          border-top: 2px solid #6461617a;
+          border-bottom: 2px solid #6461617a;
+          //background-color: hsla(20, 67%, 7%, 0.3);
+          //background-image: url(../images/minted-desc/bg.png);
+          //backdrop-filter: blur(u.rem(10));
+          position: relative;
+
+          @include u.breakpoint-max(medium) {
+            height: u.rem(433);
+          }
+
+          h2 {
+            text-align: center;
+            width: clamp(18.5rem, 4.2394rem + 45.6338vw, 59rem);
+            font-size: clamp(1.75rem, 1.3099rem + 1.4085vw, 3rem);
+            font-family: "Denominary";
+            font-weight: 600;
+            line-height: clamp(2.5rem, 1.9058rem + 1.9014vw, 4.1875rem);
+            letter-spacing: clamp(
+              0.098125rem,
+              0.0735rem + 0.0789vw,
+              0.168125rem
+            );
+          }
+
+          img {
+            position: absolute;
+
+            &.item-1 {
+              transform: rotate(270deg);
+              left: u.rem(-75);
+            }
+
+            &.item-2 {
+              transform: rotate(90deg);
+              right: u.rem(-75);
+            }
+            &.item-3 {
+              width: clamp(6.56875rem, 3.4504rem + 9.9789vw, 15.425rem);
+              transition: left ease-in-out 0.5s, bottom ease-in-out 0.5s;
+              left: u.rem(136);
+
+              animation-name: floating-up;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+
+              @include u.breakpoint-max(medium) {
+                bottom: u.rem(50);
+                left: u.rem(20);
+              }
+            }
+
+            &.item-4 {
+              width: clamp(3.375rem, 1.7685rem + 5.1408vw, 7.9375rem);
+              transition: right ease-in-out 0.5s, top ease-in-out 0.5s;
+              right: u.rem(136);
+              top: u.rem(50);
+
+              animation-name: floating-down;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+
+              @include u.breakpoint-max(medium) {
+                right: u.rem(20);
+                top: u.rem(30);
+              }
+            }
+            &.item-5 {
+              width: clamp(6.75rem, -4.4956rem + 35.9859vw, 38.6875rem);
+              height: clamp(1.54rem, 1.0699rem + 1.5042vw, 2.875rem);
+              object-fit: 100%;
+              bottom: u.rem(48);
+              left: u.rem(350);
+
+              @include u.breakpoint-max(medium) {
+                bottom: u.rem(90);
+                left: u.rem(135);
+              }
+            }
+            &.item-6 {
+              width: clamp(5.95375rem, -0.0264rem + 19.1366vw, 22.9375rem);
+              top: u.rem(70);
+              right: u.rem(300);
+
+              @include u.breakpoint-max(medium) {
+                right: u.rem(85);
+              }
+            }
+          }
+        }
+
+        .bg-1 {
+          width: clamp(17.24375rem, 10.7132rem + 20.8979vw, 35.790625rem);
+          height: clamp(17.24375rem, 10.7132rem + 20.8979vw, 35.790625rem);
+          background-image: url(../images/collection-supply/bg-1.png);
+          background-position: center;
+          background-size: cover;
+
+          position: absolute;
+          top: u.rem(-220);
+          right: 0px;
+
+          @include u.breakpoint-max(medium) {
+            top: u.rem(-130);
+          }
+        }
+
+        .bg-2 {
+          width: clamp(17.24375rem, 10.7132rem + 20.8979vw, 35.790625rem);
+          height: clamp(17.24375rem, 10.7132rem + 20.8979vw, 35.790625rem);
+          background-image: url(../images/collection-supply/bg-2.png);
+          background-position: center;
+          background-size: cover;
+
+          position: absolute;
+          bottom: -220px;
+          left: 0px;
+
+          @include u.breakpoint-max(medium) {
+            bottom: u.rem(-130);
+          }
+        }
+      }
+      &.How-To-Get-NFT {
+        min-height: 100vh;
+        background-image: url(../images/how-to-get-nft/bg.png);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     }
   }
