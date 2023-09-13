@@ -1,0 +1,211 @@
+@use "../utils" as u;
+
+.ffrc-nft-wrapper {
+  margin-bottom: 25vh;
+  overflow: hidden;
+
+  @include u.breakpoint-max(medium) {
+    padding-top: u.rem(75);
+  }
+  section {
+    min-height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(:last-child)::before {
+      content: "";
+      height: u.rem(40);
+      width: 100%;
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-image: url(../images/ffrc-nft/border.png);
+      @include u.breakpoint-max(medium) {
+        content: unset;
+      }
+    }
+
+    &:nth-child(odd) {
+      background-position: left;
+      .content-inner {
+        justify-content: flex-end;
+
+        @include u.breakpoint-max(medium) {
+          flex-direction: column;
+        }
+      }
+    }
+    &:nth-child(even) {
+      background-position: right;
+      .content-inner {
+        justify-content: flex-start;
+        @include u.breakpoint-max(medium) {
+          flex-direction: column;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      background-image: url(../images/ffrc-nft/legendary-bg.png);
+
+      .content-inner {
+        .desc-wrapper {
+          .badge-wrapper {
+            position: relative;
+            &:before {
+              background-image: url(../images/ffrc-nft/Legendary-shade.png);
+              height: clamp(14.924375rem, -0.0182rem + 47.8162vw, 57.36125rem);
+              width: clamp(14.924375rem, -0.0182rem + 47.8162vw, 57.36125rem);
+              transform: translate(-45%, -55%);
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      background-image: url(../images/ffrc-nft/mythic-bg.png);
+      .content-inner {
+        .desc-wrapper {
+          .badge-wrapper {
+            position: relative;
+            &:before {
+              background-image: url(../images/ffrc-nft/Mythic-shade.png);
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(3) {
+      background-image: url(../images/ffrc-nft/epic-bg.png);
+      .content-inner {
+        .desc-wrapper {
+          .badge-wrapper {
+            position: relative;
+            &:before {
+              background-image: url(../images/ffrc-nft/Epic-shade.png);
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(4) {
+      background-image: url(../images/ffrc-nft/Elite-bg.png);
+      .content-inner {
+        .desc-wrapper {
+          .badge-wrapper {
+            position: relative;
+            &:before {
+              background-image: url(../images/ffrc-nft/Elite-shade.png);
+            }
+          }
+        }
+      }
+    }
+
+    @include u.breakpoint-max(medium) {
+      background-image: unset !important;
+      min-height: 50vh;
+    }
+
+    .content-inner {
+      max-width: u.rem(1640);
+      width: 100%;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+
+      .desc-wrapper {
+        max-width: u.rem(499);
+        width: 100%;
+        text-align: center;
+
+        .badge-wrapper {
+          width: clamp(4.6875rem, 1.1004rem + 11.4789vw, 14.875rem);
+          margin: 0 auto;
+          position: relative;
+
+          &:before {
+            content: "";
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            height: clamp(14.924375rem, -0.0182rem + 47.8162vw, 57.36125rem);
+            width: clamp(14.924375rem, -0.0182rem + 47.8162vw, 57.36125rem);
+            transform: translate(-45%, -55%);
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            @include u.breakpoint-max(medium) {
+              transform: translate(-50%, -50%) !important;
+            }
+          }
+          img {
+            width: 100%;
+            animation: bounce 5s infinite ease-in-out;
+          }
+        }
+
+        h2 {
+          font-family: "Denominary";
+          font-weight: bold;
+          font-size: clamp(1.75rem, 0.6056rem + 3.662vw, 5rem);
+          letter-spacing: clamp(0.0875rem, 0.0303rem + 0.1831vw, 0.25rem);
+          color: u.$secondary-color;
+          margin-bottom: u.rem(20);
+          @include u.breakpoint-max(medium) {
+            margin-bottom: u.rem(24);
+          }
+        }
+        p {
+          font-size: clamp(0.625rem, 0.4489rem + 0.5634vw, 1.125rem);
+          letter-spacing: clamp(0.0125rem, 0.0041rem + 0.0268vw, 0.03625rem);
+          line-height: clamp(1.125rem, 0.8169rem + 0.9859vw, 2rem);
+          font-family: "Montserrat";
+          font-weight: 500;
+          margin-bottom: u.rem(20);
+          @include u.breakpoint-max(medium) {
+            margin: 0 u.rem(36);
+            margin-bottom: u.rem(24);
+          }
+        }
+        @include u.breakpoint-max(medium) {
+          margin-bottom: u.rem(32);
+        }
+      }
+      img.img-mobile {
+        width: 100%;
+        @include u.breakpoint-min(large) {
+          display: none;
+        }
+      }
+
+      @include u.breakpoint-max(medium) {
+        margin-bottom: u.rem(32);
+
+        &:before {
+          content: "";
+          height: u.rem(8);
+          width: 100%;
+          position: absolute;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          background-image: url(../images/ffrc-nft/border.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}

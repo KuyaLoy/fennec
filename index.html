@@ -17,7 +17,7 @@
     <main>
       <header>
         <nav>
-          <a href="#" class="brand">
+          <a href="https://fennecfoxraffleclub.com/" class="brand">
             <img src="./assets/images/logo.svg" alt="Fennec Logo" />
             <p>Fennec Fox Raffle Club</p>
           </a>
@@ -31,13 +31,17 @@
               <div class="des-3"></div>
               <div class="des-4"></div>
 
-              <li data-aos="fade-up" data-aos-duration="1000">
-                <a href="#">About</a>
+              <li>
+                <a href="javascript:;" onclick="comingsoon()">About</a>
               </li>
-              <li><a href="#">Story</a></li>
-              <li><a href="#">Spaceships</a></li>
-              <li><a href="#">FFRC NFTs</a></li>
-              <li><a href="#">Raffle Club</a></li>
+              <li><a href="javascript:;" onclick="comingsoon()">Story</a></li>
+              <li>
+                <a href="javascript:;" onclick="comingsoon()">Spaceships</a>
+              </li>
+              <li><a href="./ffrc-nfts.html">FFRC NFTs</a></li>
+              <li>
+                <a href="javascript:;" onclick="comingsoon()">Raffle Club</a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -49,7 +53,7 @@
           Your browser does not support the video tag.
         </video>
       </section>
-      <section class="About">
+      <section class="About" id="About">
         <div class="about-container">
           <div class="main-title">
             <h1 data-aos="fade-up" data-aos-delay="500">
@@ -68,8 +72,7 @@
           </p>
           <p class="status" data-aos="zoom-in" data-aos-duration="1000">
             There are four types: Legendary (<span>1%</span>), Mythic
-            (<span>9%</span>), Epic (<span>30%</span>), Common
-            (<span>60%</span>)
+            (<span>9%</span>), Epic (<span>30%</span>), Elite (<span>60%</span>)
           </p>
 
           <div class="category">
@@ -180,7 +183,12 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="explore btn-main">Explore</a>
+            <a
+              onclick="comingsoon()"
+              href="javascript:;"
+              class="explore btn-main"
+              >Explore</a
+            >
           </div>
         </div>
       </section>
@@ -271,7 +279,7 @@
         </div>
         <div class="bg-2"></div>
       </section>
-      <section class="How-To-Get-NFT">
+      <section class="How-To-Get-NFT" id="Spaceships">
         <div class="main-title">
           <h2 data-aos="fade-up" data-aos-delay="500">How to get yours</h2>
           <h3 data-aos="fade-up" data-aos-duration="1000">How to get yours</h3>
@@ -289,7 +297,9 @@
                 Spaceship you own, you will get one NFT. The Spaceship sale will
                 open with the launch of the AngryMonky marketplace.
               </p>
-              <a href="#" class="btn-main"> Buy Spaceship </a>
+              <a onclick="comingsoon()" href="javascript:;" class="btn-main">
+                Buy Spaceship
+              </a>
             </div>
           </div>
           <img
@@ -309,7 +319,9 @@
                 All Spaceship owners can claim their FFRC NFTs on the AngryMonky
                 after concluding the Spaceship sale.
               </p>
-              <a href="#" class="btn-main"> Claim FFRC NFT </a>
+              <a onclick="comingsoon()" href="javascript:;" class="btn-main">
+                Claim FFRC NFT
+              </a>
             </div>
           </div>
         </div>
@@ -318,7 +330,12 @@
           <img src="./assets/images/collection-supply/bg-1.png" alt="" />
         </div>
       </section>
-      <section class="Join-raffle" data-aos="zoom-in" data-aos-duration="1000">
+      <section
+        class="Join-raffle"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        id="Raffle-club"
+      >
         <div class="inner-cont">
           <div class="main-title">
             <h2 data-aos="fade-up" data-aos-delay="500">Join Raffle Club</h2>
@@ -369,7 +386,7 @@
               </li>
               <li data-aos="fade-up" data-aos-duration="1000">
                 <div class="accordion-header">
-                  hat is the difference between the FFRC Families?
+                  What is the difference between the FFRC Families?
                 </div>
                 <div class="accordion-content">
                   The four FFRC Families (Legendary, Epic, Mythic, and Common)
@@ -432,7 +449,11 @@
             <form>
               <input type="email" placeholder="Enter your email" />
               <button type="submit">
-                <img src="./assets/images/save-mail.svg" alt="" />
+                <img
+                  class="img-mobile"
+                  src="./assets/images/save-mail.svg"
+                  alt=""
+                />
               </button>
             </form>
           </div>
@@ -440,8 +461,20 @@
             <div class="resources">
               <div class="ownner-cont">
                 <div class="logos">
-                  <img src="./assets/images/logo-text.svg" alt="" />
-                  <img src="./assets/images/tnc-art-logo.svg" alt="" />
+                  <a href="https://fennecfoxraffleclub.com/">
+                    <img
+                      class="img-mobile"
+                      src="./assets/images/logo-text.svg"
+                      alt=""
+                    />
+                  </a>
+                  <a href="https://tnc-art.com/">
+                    <img
+                      class="img-mobile"
+                      src="./assets/images/tnc-art-logo.svg"
+                      alt=""
+                    />
+                  </a>
                 </div>
                 <div class="desc">
                   <p>
@@ -453,28 +486,44 @@
                   <p>Follow us on</p>
                   <ul>
                     <li>
-                      <a href="#"
-                        ><img src="./assets/images/icon-tg.svg" alt=""
+                      <a href="https://t.me/FennecFoxRC"
+                        ><img
+                          class="img-mobile"
+                          src="./assets/images/icon-tg.svg"
+                          alt=""
                       /></a>
                     </li>
                     <li>
-                      <a href="#"
-                        ><img src="./assets/images/icon-discord.svg" alt=""
+                      <a href="https://discord.gg/pSdAxnBdQN"
+                        ><img
+                          class="img-mobile"
+                          src="./assets/images/icon-discord.svg"
+                          alt=""
                       /></a>
                     </li>
                     <li>
-                      <a href="#"
-                        ><img src="./assets/images/icon-x.svg" alt=""
+                      <a href="https://twitter.com/fennecfoxrc"
+                        ><img
+                          class="img-mobile"
+                          src="./assets/images/icon-x.svg"
+                          alt=""
                       /></a>
                     </li>
                     <li>
-                      <a href="#"
-                        ><img src="./assets/images/icon-ig.svg" alt=""
+                      <a href="https://www.instagram.com/fennecfoxrc/"
+                        ><img
+                          class="img-mobile"
+                          src="./assets/images/icon-ig.svg"
+                          alt=""
                       /></a>
                     </li>
                     <li>
-                      <a href="#"
-                        ><img src="./assets/images/icon-fb.svg" alt=""
+                      <a
+                        href="https://www.facebook.com/people/Fennecfoxrc/61550828596586/"
+                        ><img
+                          class="img-mobile"
+                          src="./assets/images/icon-fb.svg"
+                          alt=""
                       /></a>
                     </li>
                   </ul>
@@ -484,27 +533,56 @@
                 <div class="items">
                   <h4>Resources</h4>
                   <ul>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Story</a></li>
-                    <li><a href="#">Why Fennec Fox?</a></li>
+                    <li>
+                      <a href="javasript:;" onclick="comingsoon()">About us</a>
+                    </li>
+                    <li>
+                      <a href="javasript:;" onclick="comingsoon()">Blog</a>
+                    </li>
+                    <li>
+                      <a href="javasript:;" onclick="comingsoon()">Story</a>
+                    </li>
+                    <li>
+                      <a href="javasript:;" onclick="comingsoon()"
+                        >Why Fennec Fox?</a
+                      >
+                    </li>
                   </ul>
                 </div>
                 <div class="items">
                   <h4>Minting & sales</h4>
                   <ul>
-                    <li><a href="#">Spaceships</a></li>
-                    <li><a href="#">Spaceships</a></li>
-                    <li><a href="#">Raffle Club</a></li>
+                    <li>
+                      <a href="javascript:;" onclick="comingsoon()"
+                        >Spaceships</a
+                      >
+                    </li>
+                    <li><a href="./ffrc-nfts.html">FFRC NFTs</a></li>
+                    <li>
+                      <a href="javascript:;" onclick="comingsoon()"
+                        >Raffle Club</a
+                      >
+                    </li>
                   </ul>
                 </div>
                 <div class="items">
-                  <h4>Raffle Club</h4>
+                  <h4>Stay in touch</h4>
                   <ul>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#">Partner with us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li>
+                      <a href="javascript:;" onclick="comingsoon()"
+                        >Community</a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:;" onclick="comingsoon()"
+                        >Partner with us</a
+                      >
+                    </li>
+                    <li>
+                      <a href="mailto:support@fennecfoxraffleclub.com"
+                        >Contact us</a
+                      >
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -515,14 +593,25 @@
                 reserved.
               </p>
               <ul>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li>
+                  <a href="./terms-and-condition.html">Terms & Conditions</a>
+                </li>
+                <li><a href="./privacy-policy.html">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
         </div>
       </footer>
     </main>
+
+    <div class="coming-soon">
+      <div class="content">
+        <div class="main-inner">
+          <img class="co" src="./assets/images/coming-soon.png" alt="" />
+          <button class="close" onclick="comingsoon()"></button>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -534,5 +623,15 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./assets/js/script.js"></script>
+
+    <script>
+      //SPLIDE
+      var splide = new Splide(".splide", {
+        type: "loop",
+        pagination: false,
+      });
+      splide.mount();
+      //NAV
+    </script>
   </body>
 </html>

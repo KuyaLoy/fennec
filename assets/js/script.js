@@ -1,12 +1,6 @@
 //  AOS
-AOS.init();
-//SPLIDE
-var splide = new Splide(".splide", {
-  type: "loop",
-  pagination: false,
-});
-splide.mount();
-//NAV
+AOS.init({ disable: "mobile" });
+
 $("#menu").click(function () {
   $("nav ul").addClass("show");
   $("body").addClass("disable");
@@ -44,3 +38,8 @@ $(document).ready(function () {
     }
   });
 });
+
+function comingsoon() {
+  $(".coming-soon").toggleClass("show");
+  $("body").toggleClass("disable");
+}

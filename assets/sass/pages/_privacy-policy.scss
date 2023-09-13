@@ -1,0 +1,101 @@
+@use "../utils" as u;
+
+.privacy-policy-wrapper {
+  padding: u.rem(50) u.rem(20) clamp(7.1875rem, 3.1162rem + 13.0282vw, 18.75rem)
+    u.rem(20);
+
+  .content-text {
+    max-width: u.rem(1140);
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    .main-title {
+      margin-bottom: clamp(2.5rem, 1.1796rem + 4.2254vw, 6.25rem);
+
+      h2 {
+        position: relative;
+        font-size: clamp(1.75rem, 3.662vw + 0.606rem, 5rem);
+        font-family: "Denominary";
+        letter-spacing: u.rem(3);
+        line-height: u.rem(15);
+        color: u.$secondary-color;
+        font-weight: bold;
+        width: fit-content;
+        margin: 0 auto;
+
+        &:before {
+          content: "";
+          height: u.rem(4);
+          width: 90%;
+          background-color: u.$secondary-color;
+          bottom: u.rem(-55);
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include u.breakpoint-max(medium) {
+            height: u.rem(2);
+            bottom: u.rem(-15);
+          }
+        }
+        @include u.breakpoint-max(medium) {
+          letter-spacing: u.rem(1.4);
+          margin-top: u.rem(0);
+        }
+      }
+    }
+
+    p {
+      font-family: "Montserrat";
+      font-size: clamp(0.625rem, 0.4489rem + 0.5634vw, 1.125rem);
+      line-height: clamp(1.125rem, 0.8169rem + 0.9859vw, 2rem);
+      letter-spacing: clamp(0.0125rem, 0.0011rem + 0.0366vw, 0.045rem);
+      margin-bottom: u.rem(30);
+      a {
+        //text-decoration: none;
+        color: white;
+      }
+      span {
+        font-weight: bold;
+      }
+    }
+
+    h3 {
+      font-family: "Denominary";
+      font-weight: bold;
+      font-size: clamp(1.25rem, 0.9859rem + 0.8451vw, 2rem);
+      line-height: clamp(1.75rem, 1.3759rem + 1.1972vw, 2.8125rem);
+      letter-spacing: clamp(0.05rem, 0.0394rem + 0.0338vw, 0.08rem);
+      color: u.$secondary-color;
+      margin-bottom: u.rem(20);
+    }
+    ul {
+      list-style: none; /* Remove default bullets */
+      margin-left: 0;
+      padding-left: 20px;
+      li {
+        font-family: "Montserrat";
+        font-size: clamp(0.625rem, 0.4489rem + 0.5634vw, 1.125rem);
+        line-height: clamp(1.125rem, 0.8169rem + 0.9859vw, 2rem);
+        letter-spacing: clamp(0.0125rem, 0.0011rem + 0.0366vw, 0.045rem);
+        margin-bottom: u.rem(10);
+        //font-style: italic;
+
+        span {
+          font-weight: bold;
+        }
+
+        &:before {
+          content: "\2022";
+          color: u.$secondary-color;
+          font-weight: bold;
+          display: inline-block;
+          width: clamp(0.75rem, 0.4419rem + 0.9859vw, 1.625rem);
+          //margin-left: -1em;
+          font-size: clamp(1rem, 0.6919rem + 0.9859vw, 1.875rem);
+          font-style: normal;
+        }
+      }
+    }
+  }
+}

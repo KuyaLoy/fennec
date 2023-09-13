@@ -103,10 +103,11 @@ footer {
             @include u.breakpoint-max(medium) {
               justify-content: center;
             }
-            img {
-              width: 100%;
+            a {
               padding: 0 u.rem(20);
-
+              img {
+                width: 100%;
+              }
               &:nth-child(1) {
                 max-width: clamp(11.0625rem, 8.7958rem + 7.2535vw, 17.5rem);
                 padding-left: 0;

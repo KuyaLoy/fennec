@@ -773,12 +773,12 @@ body {
         }
       }
       &.FAQ {
-        padding: clamp(4.25rem, 2.6215rem + 5.2113vw, 8.875rem) u.rem(40);
         min-height: 150vh;
         background-image: url(../images/FAQ/bg.png);
         background-position: left center;
         background-repeat: no-repeat;
         background-size: 65%;
+        padding: clamp(4.25rem, 2.6215rem + 5.2113vw, 8.875rem) 0;
 
         @include u.breakpoint-max(medium) {
           background-position: 50% bottom;
@@ -839,6 +839,7 @@ body {
           display: flex;
           flex-wrap: wrap;
           margin-top: u.rem(150);
+          //padding: 0 u.rem(40);
 
           @include u.breakpoint-max(medium) {
             margin-top: u.rem(50);
@@ -858,6 +859,9 @@ body {
             &.accordian-cont {
               .accordion {
                 padding: 0;
+                @include u.breakpoint-max(medium) {
+                  margin: 0 u.rem(20);
+                }
 
                 li {
                   margin-bottom: clamp(1.25rem, 0.8099rem + 1.4085vw, 2.5rem);
